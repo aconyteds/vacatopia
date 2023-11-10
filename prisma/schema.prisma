@@ -1,0 +1,63 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  email     String @unique
+  firstName String
+  lastName  String
+}
+
+model listing {
+  id                             String   @id @default(auto()) @map("_id") @db.ObjectId
+  availability_365               Int
+  calculated_host_listings_count Int
+  host_id                        BigInt
+  host_name                      String
+  last_review                    DateTime @db.Date
+  latitude                       Float
+  license                        Boolean
+  listing_id                     BigInt   @unique
+  longitude                      Float
+  minimum_nights                 Int
+  name                           String
+  neighbourhood                  String
+  neighbourhood_group            String
+  number_of_reviews              Int
+  number_of_reviews_ltm          Int
+  price                          Int
+  /// Multiple data types found: Float: 87.3%, Int: 12.7% out of 1000 sampled entries
+  reviews_per_month              Json
+  room_type                      String
+}
+
+model listing_event {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  adjusted_price Int
+  available      Boolean
+  date           DateTime @db.Date
+  listing_id     BigInt
+  maximum_nights Int
+  minimum_nights Int
+  price          Int
+
+  @@index([listing_id], map: "listing_id")
+}
+
+model listing_review {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  date       DateTime @db.Date
+  listing_id BigInt
+
+  @@index([listing_id], map: "listing_id")
+}
+
+model practice_stuff {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+}

@@ -1,0 +1,36 @@
+{
+  "name": "vacatopia",
+  "version": "1.0.0",
+  "description": "A NodeJS GraphQL API for displaying consolidated vacation data from multiple sources.",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "ts-node-dev --clear --project ./tsconfig.json --respawn --transpile-only src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "graphql:codegen": "graphql-codegen --config codegen.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/server": "^4.9.5",
+    "@apollo/subgraph": "^2.5.6",
+    "@graphql-codegen/cli": "^5.0.0",
+    "@graphql-codegen/graphql-modules-preset": "^4.0.1",
+    "@graphql-codegen/plugin-helpers": "^5.0.1",
+    "@graphql-codegen/typescript": "^4.0.1",
+    "@graphql-codegen/typescript-resolvers": "^4.0.1",
+    "@graphql-tools/graphql-file-loader": "^8.0.0",
+    "@graphql-tools/load": "^8.0.0",
+    "@graphql-tools/merge": "^9.0.0",
+    "@prisma/client": "^5.5.2",
+    "graphql": "^16.8.1",
+    "graphql-modules": "^2.3.0",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.9.0",
+    "prisma": "^5.5.2",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0"
+  }
+}

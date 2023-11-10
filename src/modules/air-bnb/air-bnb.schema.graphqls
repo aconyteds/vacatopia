@@ -1,0 +1,21 @@
+extend type Query {
+  findAirBNBListings(input: FindAirBNBListingsInput!): [AirBNBListing!]!
+}
+
+input FindAirBNBListingsInput {
+  id: [ID!]
+  name: [String!]
+  hostId: [ID!]
+}
+
+# A Listing that originated from Air BNB
+type AirBNBListing {
+  id: ID!
+  listingId: ID!
+  hostId: ID!
+  hostName: String!
+  name: String!
+  type: String!
+  minimumNights: Int
+  location: Location
+}

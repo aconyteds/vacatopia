@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+      "target": "esnext",
+      "module": "NodeNext",
+      "moduleResolution": "NodeNext",
+      "baseUrl": ".",
+      "paths": {
+        "generated": ["./src/types/generated.ts"],
+      }
+    }
+  }
+  
